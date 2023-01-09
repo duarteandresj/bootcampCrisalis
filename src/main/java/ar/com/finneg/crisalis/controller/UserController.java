@@ -27,11 +27,11 @@ public class UserController {
 	public User saveUser(@RequestBody UserDTO userDTO) {
 		return this.userService.saveUser(userDTO);
 	}
-	@GetMapping(value="Login",produces=MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value="login",produces=MediaType.APPLICATION_JSON_VALUE)
 	public UserDTO loginUser(@RequestParam String username,@RequestParam String password) {
 		return this.userService.loginUserWithCredentials(username, password);	
 	}
-	@GetMapping(value = "List",produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "list",produces = MediaType.APPLICATION_JSON_VALUE)
 		public List<UserDTO> getAllUser(){
 		return this.userService.getListAllUsersToBD();
 		

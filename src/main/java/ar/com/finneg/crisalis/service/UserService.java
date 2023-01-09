@@ -58,14 +58,14 @@ public class UserService {
 			if (StringUtils.isEmpty(userDTO.getName())) {
 				throw new EmptyElementException("Name is empty");
 			}
-			if (isOnlyLetters(userDTO.getName())) {
+			if (!isOnlyLetters(userDTO.getName())) {
 				throw new InvalidStringException("Name invalid");
 			}
 
 			if (StringUtils.isEmpty(userDTO.getLastname())) {
 				throw new EmptyElementException("Lastname is empty");
 			}
-			if (isOnlyLetters(userDTO.getName())) {
+			if (!isOnlyLetters(userDTO.getName())) {
 				throw new InvalidStringException("Lastname invalid");
 			}
 		}
