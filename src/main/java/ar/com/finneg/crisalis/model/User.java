@@ -12,36 +12,31 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "usuario")
+@Table(name = "usuarios")
 public class User {
 
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	@Column(name="id")
-	private int id; 
-	@Column(name="nombre")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private int id;
+	@Column(name = "name",length = 15)
 	private String name;
-	@Column(name="lastname")
+	@Column(name = "lastname",length = 15)
 	private String lastname;
-	@Column(name="username")
+	@Column(name = "username",unique = true)
 	private String username;
-	@Column(name="password")
+	@Column(name = "password")
 	private String password;
-	
+
 	public User(UserDTO userDTO) {
-		this.name=userDTO.getName();
-		this.lastname=userDTO.getLastname();
-		this.username=userDTO.getUsername();
-		this.password=userDTO.getPassword();
+		this.name = userDTO.getName();
+		this.lastname = userDTO.getLastname();
+		this.username = userDTO.getUsername();
+		this.password = userDTO.getPassword();
 	}
-	
-	public UserDTO toUserDTO() { 
-		return  UserDTO
-						.builder()
-						.name(this.name)
-						.lastname(this.lastname)
-						.username(this.username)
-						.password(this.password)
-						.build();
+
+	public UserDTO toUserDTO() {
+		return UserDTO.builder().name(this.name).lastname(this.lastname).username(this.username).password(this.password)
+				.build();
 	}
 }
